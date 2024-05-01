@@ -26,7 +26,7 @@ class TestClientes(unittest.TestCase):
         self.bill_1 = factura.Factura()
         self.bill_2 = factura.Factura()
 
-        self.client_crud = crud.create_client(name="Juan Esteban Cardona", dni="43381789")
+        self.client_crud = crud.create_client(name="Jorge Luis Araque", dni="104362982")
         self.antibiotic_crud_1 = crud.create_product_antibiotic(name="antibiotic_1", dose="500ml",
                                                                 animal_type="bovino", value=12000)
         self.antibiotic_crud_2 = crud.create_product_antibiotic(name="antibiotic_2", dose="400ml",
@@ -79,20 +79,20 @@ class TestClientes(unittest.TestCase):
         self.assertEqual(self.client_crud.bills[1].total_value(), 510000)
 
     def test_input_validations(self):
-        self.assertTrue(validations.validate_name("Sebastian"))
-        self.assertTrue(validations.validate_name("Sebastian Cacante"))
-        self.assertTrue(validations.validate_name("Sebastian Cacante Salazar"))
-        self.assertTrue(validations.validate_name("Mañe"))
-        self.assertFalse(validations.validate_name("$eb?stian"))
-        self.assertFalse(validations.validate_name("Se"))
+        self.assertTrue(validations.validate_name("Alejandra"))
+        self.assertTrue(validations.validate_name("Alejandra Zapata"))
+        self.assertTrue(validations.validate_name("Alejandra Zapata Duque"))
+        self.assertTrue(validations.validate_name("Asdrubal"))
+        self.assertFalse(validations.validate_name("German"))
+        self.assertFalse(validations.validate_name("Al"))
 
-        self.assertTrue(validations.validate_cedula("1091272102"))
+        self.assertTrue(validations.validate_cedula("1091648258"))
         self.assertTrue(validations.validate_cedula("43381789"))
         self.assertFalse(validations.validate_cedula("ABCDEF123456"))
         self.assertFalse(validations.validate_cedula("123"))
-        self.assertFalse(validations.validate_cedula("1.091.272.102"))
-        self.assertFalse(validations.validate_cedula("1-091-272-102"))
-        self.assertFalse(validations.validate_cedula("1 091 272 102"))
+        self.assertFalse(validations.validate_cedula("1.091.648.258"))
+        self.assertFalse(validations.validate_cedula("1-091-648-258"))
+        self.assertFalse(validations.validate_cedula("1 091 648 258"))
 
 
 if __name__ == '__main__':
